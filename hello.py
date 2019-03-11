@@ -138,12 +138,73 @@ L = ['Bart', 'Lisa', 'Adam']
 
 
 n=0
-while n<=10:
-    n=n+1
-    if(n%2==0):
-        continue
-    print(n)
+# while n<=10:
+#     n=n+1
+#     if(n%2==0):
+#         continue
+#     print(n)
 
-    
-    
+#dict=在别的语言中就是map
+# d={'Michael': 95, 'Bob': 75, 'Tracy': 85}
+# print('Bob' in d)
 
+# help(abs)
+# print(max('d1','dc','dc'))
+# print(max('2','3','-1'))
+
+# print(bool('a'))
+
+# print(hex(255))
+# print(hex(1000))
+
+# def myabs(x):    
+#     if(x>=0):
+#         return x
+#     else:
+#         return -x
+# print(myabs(0))
+# print(myabs(1))
+# print(myabs(-99))
+
+# def nop():
+#     pass
+# print(1)
+
+# print(myabs(1))
+
+# print(not isinstance(1.2,(int,float)))
+
+# def myabs_pro(x):
+#     if not isinstance(x,(int,float)):
+#         raise TypeError("非法参数")
+#     if(x>=0):
+#         return x
+#     else:
+#         return -x
+# print(myabs_pro(1.1))
+
+import math
+# def move(x,y,step,angle=0):
+#     nx=x+step*math.cos(angle)
+#     ny=y-step*math.sin(angle)
+#     return nx,ny
+# print(move(0,0,1,60))
+
+# # # 定义函数时，需要确定函数名和参数个数；
+
+# # # 如果有必要，可以先对参数的数据类型做检查；
+
+# # # 函数体内部可以用return随时返回函数结果；
+
+# # # 函数执行完毕也没有return语句时，自动return None。
+
+# # # 函数可以同时返回多个值，但其实就是一个tuple。
+
+# def quadratic(a,b,c):
+#     if not(a+b+c,isinstance(int,float)):
+#         raise TypeError("数据类型不对")
+#     d=b**2-4*a*c
+#     if d==0:
+#         return (-b+math.sqrt(b))/(2*a)
+#     elif d>0:
+#         return
