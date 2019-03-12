@@ -200,11 +200,50 @@ import math
 
 # # # 函数可以同时返回多个值，但其实就是一个tuple。
 
-# def quadratic(a,b,c):
+# def quadratic(a=2,b=4,c=2):
 #     if not(a+b+c,isinstance(int,float)):
 #         raise TypeError("数据类型不对")
 #     d=b**2-4*a*c
 #     if d==0:
-#         return (-b+math.sqrt(b))/(2*a)
+#         return '%.2f' % ((-b+math.sqrt(d))/(2*a))
 #     elif d>0:
-#         return
+#         return '%.2f,%.2f' % ((-b+math.sqrt(d))/(2*a),(-b-math.sqrt(d))/(2*a))
+#     else:
+#         return ''
+
+# print('quadratic(2, 4, 1) =', quadratic(2, 4, 1))
+# print('quadratic(1, 3, -4) =', quadratic(1, 3, -4))
+# print('quadratic(1, 2, 1) =', quadratic(1, 2, 1))
+# print('quadratic(1, 3, 1) =', quadratic(1, 3, 1))
+# print('quadratic() =', quadratic())
+
+# # 当不按顺序提供部分默认参数时，需要把参数名写上
+# # 定义默认参数要牢记一点：默认参数必须指向不变对象！
+# print('quadratic(a=2,c=1) =', quadratic(2,c=1))
+
+# def add_end(L=[]):
+#     L.append('end')
+#     return L
+# print(add_end([1]))
+# print(add_end([1]))
+# print(add_end())
+# print(add_end())
+
+
+#可变参数 可变参数允许你传入0个或任意个参数，这些可变参数在函数调用时自动组装为一个tuple
+def calc(*numbers):
+    sum = 0
+    for n in numbers:
+        sum = sum + n * n
+    return sum
+
+print(calc(1,2,3,4))
+
+#关键字参数 关键字参数允许你传入0个或任意个含参数名的参数，这些关键字参数在函数内部自动组装为一个dict
+def person(name, age, **kw):
+    print('name:', name, 'age:', age, 'other:', kw)
+
+extra={'city': 'Beijing', 'job': 'Engineer'}
+print(person('Jack', 24, **extra))
+print(person('Jack', 24, **{'city': 'Beijing', 'job': 'Engineer'}))
+print(person('Jack', 24, city="Beijing",job="Engineer"))
