@@ -230,20 +230,58 @@ import math
 # print(add_end())
 
 
-#可变参数 可变参数允许你传入0个或任意个参数，这些可变参数在函数调用时自动组装为一个tuple
+# #可变参数 可变参数允许你传入0个或任意个参数，这些可变参数在函数调用时自动组装为一个tuple
 def calc(*numbers):
     sum = 0
     for n in numbers:
         sum = sum + n * n
     return sum
+# print(calc(1,2,3,4))
+# #*nums表示把nums这个list的所有元素作为可变参数传进去。
+# t=(1,2,3)
+# print(calc(*t))
 
-print(calc(1,2,3,4))
+# #关键字参数 关键字参数允许你传入0个或任意个含参数名的参数，这些关键字参数在函数内部自动组装为一个dict
+# #**extra表示把extra这个dict的所有key-value用关键字参数传入到函数的**kw参数
+# def person(name, age, **kw):
+#     print('name:', name, 'age:', age, 'other:', kw)
 
-#关键字参数 关键字参数允许你传入0个或任意个含参数名的参数，这些关键字参数在函数内部自动组装为一个dict
-def person(name, age, **kw):
-    print('name:', name, 'age:', age, 'other:', kw)
+# extra={'city': 'Beijing', 'job': 'Engineer'}
+# print(person('Jack', 24, **extra))
+# print(person('Jack', 24, **{'city': 'Beijing', 'job': 'Engineer'}))
+# print(person('Jack', 24, city="Beijing",job="Engineer"))
 
-extra={'city': 'Beijing', 'job': 'Engineer'}
-print(person('Jack', 24, **extra))
-print(person('Jack', 24, **{'city': 'Beijing', 'job': 'Engineer'}))
-print(person('Jack', 24, city="Beijing",job="Engineer"))
+# #命名关键字参数 命名关键字参数需要一个特殊分隔符*，*后面的参数被视为命名关键字参数。
+# #函数定义中已经有了一个可变参数，后面跟着的命名关键字参数就不再需要一个特殊分隔符*
+# def person(name, age, *args, city, job):
+#     print(name, age, args, city, job)
+# b=(1,2)
+# person("a",12,*b,city="beijing",job="123")
+
+#参数定义的顺序必须是：必选参数、默认参数、可变参数、命名关键字参数和关键字参数。
+
+# def product(*t):
+#     if len(t)<=0:
+#         raise TypeError("没参数")
+#     sum=1
+#     for x in t:
+#         sum=sum*x
+#     return sum
+
+# if product(5) != 5:
+#     print('测试失败!')
+# elif product(5, 6) != 30:
+#     print('测试失败!')
+# elif product(5, 6, 7) != 210:
+#     print('测试失败!')
+# elif product(5, 6, 7, 9) != 1890:
+#     print('测试失败!')
+# else:
+#     try:
+#         product()
+#         print('测试失败!')
+#     except TypeError:
+#         print('测试成功!')
+
+# *args 是可变参数 接收的是一个tuple元祖
+# **kw 关键字参数 接受的是一个dict(java的map)
