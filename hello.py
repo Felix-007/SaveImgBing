@@ -258,8 +258,6 @@ def calc(*numbers):
 # b=(1,2)
 # person("a",12,*b,city="beijing",job="123")
 
-#参数定义的顺序必须是：必选参数、默认参数、可变参数、命名关键字参数和关键字参数。
-
 # def product(*t):
 #     if len(t)<=0:
 #         raise TypeError("没参数")
@@ -283,5 +281,34 @@ def calc(*numbers):
 #     except TypeError:
 #         print('测试成功!')
 
+# 参数定义的顺序必须是：必选参数、默认参数、可变参数、命名关键字参数和关键字参数。
 # *args 是可变参数 接收的是一个tuple元祖
 # **kw 关键字参数 接受的是一个dict(java的map)
+
+
+# # 递归函数
+# def fact(n):
+#     if n==1:
+#         return 1
+#     return n*fact(n-1)
+
+# print(fact(10))
+
+# L=[]
+# n=99
+# while n>0:
+#     L.append(n)
+#     n=n-2
+# print(L)
+
+
+
+
+# 切片 slice
+L = ['Michael', 'Sarah', 'Tracy', 'Bob', 'Jack']
+#从0开始取2个
+print(L[0:2]) 
+print(L[-1:])
+#从0 开始取4个 每2个取一个
+print(L[0:4:2])
+
