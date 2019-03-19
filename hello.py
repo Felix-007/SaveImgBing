@@ -303,12 +303,42 @@ def calc(*numbers):
 
 
 
+# # 切片 slice
+# L = ['Michael', 'Sarah', 'Tracy', 'Bob', 'Jack']
+# #从0开始取2个
+# print(L[0:2]) 
+# print(L[-1:])
+# #从0 开始取4个 每2个取一个
+# print(L[0:4:2])
 
-# 切片 slice
-L = ['Michael', 'Sarah', 'Tracy', 'Bob', 'Jack']
-#从0开始取2个
-print(L[0:2]) 
-print(L[-1:])
-#从0 开始取4个 每2个取一个
-print(L[0:4:2])
 
+# D={'Michael': 95, 'Bob': 75, 'Tracy': 85}
+# # print(D.keys())
+# for d in D:
+#     print(d)
+# #默认情况下Dict迭代的是 key 可以通过 keys() values() items()来分别迭代key value 每个元素
+
+def findMinAndMax(L):
+    # print(len(L))
+    if(len(L))<=0:
+        return None,None
+    a=L[0]
+    b=L[0]
+    for l in L:
+        if(l>a):
+            a=l
+        elif(l<b):
+            b=l
+    return b,a
+
+
+if findMinAndMax([]) != (None, None):
+    print('测试失败1!')
+elif findMinAndMax([7]) != (7, 7):
+    print('测试失败2!')
+elif findMinAndMax([7, 1]) != (1, 7):
+    print('测试失败3!')
+elif findMinAndMax([7, 1, 3, 9, 5]) != (1, 9):
+    print('测试失败4!')
+else:
+    print('测试成功5!')
