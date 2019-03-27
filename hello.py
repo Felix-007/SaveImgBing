@@ -231,11 +231,11 @@ import math
 
 
 # #可变参数 可变参数允许你传入0个或任意个参数，这些可变参数在函数调用时自动组装为一个tuple
-def calc(*numbers):
-    sum = 0
-    for n in numbers:
-        sum = sum + n * n
-    return sum
+# def calc(*numbers):
+#     sum = 0
+#     for n in numbers:
+#         sum = sum + n * n
+#     return sum
 # print(calc(1,2,3,4))
 # #*nums表示把nums这个list的所有元素作为可变参数传进去。
 # t=(1,2,3)
@@ -378,11 +378,86 @@ def calc(*numbers):
 # else:
 #     print('测试失败!')
 
-L=[x*x for x in range(10)]
-print(L)
+# L=[x*x for x in range(10)]
+# print(L)
 
-g=(x*x for x in range(10))
-print(g)
+# g=(x*x for x in range(10))
+# print(g)
 
-for n in g:
-    print(n)
+# for n in g:
+#     print(n)
+
+# def fib(max):
+#     n,a,b=0,0,1
+#     while n<max:
+#         yield(b)
+#         a,b=b,a+b
+#         n=n+1
+#     return 'done'
+
+# for n in fib(6):
+#     print(n)
+
+# g=fib(6)
+# while 1:
+#     try:
+#         x=next(g)
+#         print("g=",x)
+#     except StopIteration as e:
+#         print(e.value)
+#         break
+
+
+# fib函数实际上是定义了斐波拉契数列的推算规则，可以从第一个元素开始，推算出后续任意的元素，这种逻辑其实非常类似generator 
+# 要把fib函数变成generator，只需要把print(b)改为yield b就可以了
+
+# def triangles():
+#     L=[1]
+#     while 1:
+#         yield L
+#         L=[1]+[L[i]+L[i+1] for i in range(len(L)-1)]+[1]
+
+# L=[1]+[2]+[3]
+# print(L)
+
+# n = 0
+# results = []
+# for t in triangles():
+#     print(t)
+#     results.append(t)
+#     n = n + 1
+#     if n == 10:
+#         break
+# if results == [
+#     [1],
+#     [1, 1],
+#     [1, 2, 1],
+#     [1, 3, 3, 1],
+#     [1, 4, 6, 4, 1],
+#     [1, 5, 10, 10, 5, 1],
+#     [1, 6, 15, 20, 15, 6, 1],
+#     [1, 7, 21, 35, 35, 21, 7, 1],
+#     [1, 8, 28, 56, 70, 56, 28, 8, 1],
+#     [1, 9, 36, 84, 126, 126, 84, 36, 9, 1]
+# ]:
+#     print('测试通过!')
+# else:
+#     print('测试失败!')
+
+
+# from collections.abc import Iterable
+# from collections.abc import Iterator
+
+# print(isinstance([],Iterable))
+
+# 生成器都是Iterator对象，但list、dict、str虽然是Iterable，却不是Iterator
+# 凡是可作用于for循环的对象都是Iterable类型
+# 凡是可作用于next()函数的对象都是Iterator类型，它们表示一个惰性计算的序列；
+# 集合数据类型如list、dict、str等是Iterable但不是Iterator，不过可以通过iter()函数获得一个Iterator对象。
+
+print(abs)
+f=abs
+print(f(-10))
+
+def add(x,y,f):
+    return f(x)+f(y)
