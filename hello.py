@@ -455,9 +455,73 @@ import math
 # 凡是可作用于next()函数的对象都是Iterator类型，它们表示一个惰性计算的序列；
 # 集合数据类型如list、dict、str等是Iterable但不是Iterator，不过可以通过iter()函数获得一个Iterator对象。
 
-print(abs)
-f=abs
-print(f(-10))
 
-def add(x,y,f):
-    return f(x)+f(y)
+#高阶函数
+# def add(x,y,f):
+#     return f(x)+f(y)
+
+# print(add(-1,3,abs))
+
+# #map/reduc
+# def f(x):
+#     return x*x
+# #返回接口r是iterator 是惰性的 通过list()函数计算出来
+# #r=map(f,[1,2,3,4,5,6])
+# print(list(map(f,[1,2,3,4,5,6])))
+
+from functools import reduce
+# def add (x,y):
+#     return x+y
+# print(reduce(add,[1,3,5,7,9]))
+
+# print(sum([1,3,5,7,9]))
+
+# def fn(x,y):
+#     return x*10+y
+# print(reduce(fn,[1,3,5,7,9]))
+
+DIGITS = {'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9}
+
+# def char2num(s):
+#     return DIGITS[s]
+# print(list(map(char2num,'123')))
+
+# def normalize(name):
+#     return name[0:1].upper()+name[1:-1].lower()
+
+# L1 = ['adam', 'LISA', 'barT']
+# L2 = list(map(normalize, L1))
+# print(L2)
+
+# def prod(L):
+#     return reduce(lambda x,y:x*y,L)
+
+# print('3 * 5 * 7 * 9 =', prod([3, 5, 7, 9]))
+# if prod([3, 5, 7, 9]) == 945:
+#     print('测试成功!')
+# else:
+#     print('测试失败!')
+
+
+def str2float(s):
+    def ctoD(s):
+        return DIGITS[s]
+    def getdot(s):
+        return s[0:s.find('.')],s[s.find('.')+1:]
+    def getint(s):
+        return reduce(lambda x,y:x*10+y,map(ctoD,s))
+    def getfloat(s):
+        return reduce(lambda x,y:x*10+y,map(ctoD,s))
+    ss=getdot(s)
+    print(ss)
+    print(getint(ss[0]))
+    print(getfloat(ss[1])/math.pow(10,len(ss[1])))
+    return getint(ss[0])+getfloat(ss[1])/math.pow(10,len(ss[1]))
+print(str2float('123.456'))
+
+
+print('str2float(\'123.456\') =', str2float('123.456'))
+if abs(str2float('123.456') - 123.456) < 0.00001:
+    print('测试成功!')
+else:
+    print('测试失败!')
