@@ -570,20 +570,94 @@ DIGITS = {'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8
 # else:
 #     print('测试失败!')
 
-# 排序 sorted()
-print(sorted(['bob', 'about', 'Zoo', 'Credit'], key=str.lower, reverse=True))
+# # 排序 sorted()
+# print(sorted(['bob', 'about', 'Zoo', 'Credit'], key=str.lower, reverse=True))
 
-L = [('Bob', 75), ('Adam', 92), ('Bart', 66), ('Lisa', 88)]
-def by_name(t):
-    print(t[0])
-    return t[0].lower()
+# L = [('Bob', 75), ('Adam', 92), ('Bart', 66), ('Lisa', 88)]
+# def by_name(t):
+#     print(t[0])
+#     return t[0].lower()
 
-def by_score(t):
-    print(t[1])
-    return t[1]
+# def by_score(t):
+#     print(t[1])
+#     return t[1]
 
-L2 = sorted(L, key=by_name)
-print(L2)
+# L2 = sorted(L, key=by_name)
+# print(L2)
 
-L2 = sorted(L, key=by_score)
-print(L2)
+# L2 = sorted(L, key=by_score)
+# print(L2)
+
+
+# def calc_sum(*args):
+#     ax=0
+#     for n in args:
+#         ax=ax+n
+#     return ax
+
+# def lazy_sum(*args):
+#     def sum():
+#         ax = 0
+#         for n in args:
+#             ax = ax + n
+#         return ax
+#     return sum
+
+# f=lazy_sum(1,3,4,5,6)
+# print(lazy_sum(1,3,4,5,6))
+# print(f())
+# print(lazy_sum(1,3,4,5,6)())
+
+#返回闭包时牢记一点：返回函数不要引用任何循环变量，或者后续会发生变化的变量。
+# def count():
+#     fs = []
+#     for i in range(1, 4):
+#         def f():
+#              return i*i
+#         fs.append(f)
+#     return fs
+
+# f1, f2, f3 = count()
+# print(f1())
+# print(f2())
+# print(f3())
+
+# def count2():
+#     fs = []
+#     def f(j):
+#         def g():
+#             return j
+#         return g
+#     for i in range(1, 4):
+#         fs.append(f(i)) # f(i)立刻被执行，因此i的当前值被传入f()
+#     return fs
+
+# f1, f2, f3 = count2()
+# print(f1())
+# print(f2())
+# print(f3())
+
+
+# def createCounter():
+#     sum=0
+#     def counter(): 
+#         nonlocal sum      
+#         sum=sum+1
+#         return sum
+#     return counter
+    
+# def createCounter():
+#     li=[0]
+#     def counter():
+#         li.append(li[-1]+1)
+#         return li[-1] 
+#     return counter
+
+# counterA = createCounter()
+# print(counterA(), counterA(), counterA(), counterA(), counterA()) # 1 2 3 4 5
+# counterB = createCounter()
+# if [counterB(), counterB(), counterB(), counterB()] == [1, 2, 3, 4]:
+#     print('测试通过!')
+# else:
+#     print('测试失败!')
+
