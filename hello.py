@@ -503,25 +503,87 @@ DIGITS = {'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8
 #     print('测试失败!')
 
 
-def str2float(s):
-    def ctoD(s):
-        return DIGITS[s]
-    def getdot(s):
-        return s[0:s.find('.')],s[s.find('.')+1:]
-    def getint(s):
-        return reduce(lambda x,y:x*10+y,map(ctoD,s))
-    def getfloat(s):
-        return reduce(lambda x,y:x*10+y,map(ctoD,s))
-    ss=getdot(s)
-    print(ss)
-    print(getint(ss[0]))
-    print(getfloat(ss[1])/math.pow(10,len(ss[1])))
-    return getint(ss[0])+getfloat(ss[1])/math.pow(10,len(ss[1]))
-print(str2float('123.456'))
+# def str2float(s):
+#     def ctoD(s):
+#         return DIGITS[s]
+#     def getdot(s):
+#         return s[0:s.find('.')],s[s.find('.')+1:]
+#     def getint(s):
+#         return reduce(lambda x,y:x*10+y,map(ctoD,s))
+#     def getfloat(s):
+#         return reduce(lambda x,y:x*10+y,map(ctoD,s))
+#     ss=getdot(s)
+#     print(ss)
+#     print(getint(ss[0]))
+#     print(getfloat(ss[1])/math.pow(10,len(ss[1])))
+#     return getint(ss[0])+getfloat(ss[1])/math.pow(10,len(ss[1]))
+# print(str2float('123.456'))
 
 
-print('str2float(\'123.456\') =', str2float('123.456'))
-if abs(str2float('123.456') - 123.456) < 0.00001:
-    print('测试成功!')
-else:
-    print('测试失败!')
+# print('str2float(\'123.456\') =', str2float('123.456'))
+# if abs(str2float('123.456') - 123.456) < 0.00001:
+#     print('测试成功!')
+# else:
+#     print('测试失败!')
+
+# def isodd(n):
+#     return n%2==0
+
+# print(list(filter(isodd,[1,2,3,4,5,9,11])))
+
+# def not_empty(s):
+#     return s and s.strip()
+# print(list(filter(not_empty,['A', '', 'B', None, 'C', '  '])))
+
+# def odd_iter():
+#     n=1
+#     while 1:
+#         n=n+2
+#         yield n
+
+# #筛选函数
+# def _not_divisible(n):
+#     return lambda x: x%n>0
+
+# def primes():
+#     yield 2
+#     it =odd_iter()
+#     while 1:
+#         n=next(it)
+#         yield n
+#         it =filter(_not_divisible(n),it)
+
+# for n in primes():
+#     if n < 1000:
+#         print(n)
+#     else:
+#         break
+
+
+# def is_palindrome(n):
+#     return str(n)==str(n)[::-1]
+
+# output = filter(is_palindrome, range(1, 1000))
+# print('1~1000:', list(output))
+# if list(filter(is_palindrome, range(1, 200))) == [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 22, 33, 44, 55, 66, 77, 88, 99, 101, 111, 121, 131, 141, 151, 161, 171, 181, 191]:
+#     print('测试成功!')
+# else:
+#     print('测试失败!')
+
+# 排序 sorted()
+print(sorted(['bob', 'about', 'Zoo', 'Credit'], key=str.lower, reverse=True))
+
+L = [('Bob', 75), ('Adam', 92), ('Bart', 66), ('Lisa', 88)]
+def by_name(t):
+    print(t[0])
+    return t[0].lower()
+
+def by_score(t):
+    print(t[1])
+    return t[1]
+
+L2 = sorted(L, key=by_name)
+print(L2)
+
+L2 = sorted(L, key=by_score)
+print(L2)
