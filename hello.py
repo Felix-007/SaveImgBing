@@ -661,3 +661,85 @@ DIGITS = {'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8
 # else:
 #     print('测试失败!')
 
+# #lambda匿名函数
+# def is_odd(n):
+#     return n % 2 == 1
+
+# L = list(filter(lambda n:n % 2 == 1, range(1, 20)))
+# print(L)
+
+import time, functools
+# def logg(func):
+#     @functools.wraps(func)
+#     def wrapper(*args,**kw):
+#         print('call 调用 %s():' % func.__name__)
+#         return func(*args,**kw)
+#     return wrapper
+
+# @logg
+# def now():
+#     print('FUCK11')
+# now()
+# f=now
+# f()
+# print(now.__name__)
+
+
+# def log(text):
+#     def decorator(func):
+#         @functools.wraps(func)
+#         def wrapper(*args, **kw):
+#             print('%s %s():' % (text, func.__name__))
+#             return func(*args, **kw)
+#         return wrapper
+#     return decorator
+
+# def metric(fn):
+#     @functools.wraps(fn)
+#     def wrapper(*args,**kw):
+#         begin=time.time()
+#         r=fn(*args,**kw)
+#         end=time.time()
+#         print('%s executed in %s ms' % (fn.__name__, 1000*(end-begin)))
+#         return r
+#     return wrapper
+
+
+# @metric
+# def fast(x, y):
+#     time.sleep(0.0012)
+#     return x + y
+
+# @metric
+# def slow(x, y, z):
+#     time.sleep(0.1234)
+#     return x * y * z
+
+# print(fast(11, 22))
+# print(slow(11, 22, 33))
+# f = fast(11, 22)
+# s = slow(11, 22, 33)
+# if f != 33:
+#     print('测试失败!')
+# elif s != 7986:
+#     print('测试失败!')
+
+# #偏函数  base=  传入的参数是多少进制
+# print(int('12345'))
+# int('12345', 8)
+# print(int('12345', base=7))
+
+# def int2(x, base=2):
+#     return int(x, base)
+# print( int2('1000000'))
+
+# # functools.partial的作用就是，把一个函数的某些参数给固定住
+# # （也就是设置默认值），返回一个新的函数，
+# # 调用这个新函数会更简单import functools
+# int2=functools.partial(int ,base=2)
+# print(int2('1000000'))
+
+max2 = functools.partial(max,10)
+print(max2(5,6,7))
+
+
