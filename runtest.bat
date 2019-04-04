@@ -1,9 +1,9 @@
 @echo off 
 
 e:
-cd E:\My_workspace\SaveImgBing
+cd E:\Python_workspace\SaveImgBing
 
-
+dir
 start python picFromBing.py
 
-@echo pause
+pause

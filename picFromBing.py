@@ -45,7 +45,7 @@ def save_img(imgList,path):
 
 
 
- 
+
 if __name__=='__main__':
     html=getHtml(PAGE_URL)
     print("step1:获取网页源码成功")
@@ -56,4 +56,5 @@ if __name__=='__main__':
     print("#step3 定义图片保存路径")
     if(save_img(imgList,path)):
         print("图片爬取保存成功")
-    input("完成")  #挂起不退出
+        
+os.system("pause")
