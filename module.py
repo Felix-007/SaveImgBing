@@ -125,3 +125,15 @@ print(isinstance(dog,Animal))
 # 我们只需要保证传入的对象有一个run()方法就可以了
 # 动态语言的鸭子类型特点决定了继承不像静态语言那样是必须的
 
+isinstance([1, 2, 3], (list, tuple))
+#可同时判断多个类型
+#优先使用isinstance()判断类型
+
+#获取一个对象的所有属性和方法  使用dir函数
+print(dir(dog))
+
+#就像JAVA里面的getset方法
+# getattr()、setattr()以及hasattr()(有属性'xxx'吗)，
+# 我们可以直接操作一个对象的状态
+print(hasattr(dog,'run'))
+
