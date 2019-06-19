@@ -743,3 +743,6 @@ max2 = functools.partial(max,10)
 print(max2(5,6,7))
 
 
+min2 = functools.partial(min,10)
+print(min2(5,6,7))
+
